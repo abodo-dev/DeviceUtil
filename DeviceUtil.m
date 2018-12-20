@@ -153,7 +153,7 @@ NSString* const x86_64_Sim  = @"x86_64";
       deviceUtilBundle = deviceUtilTopBundle;
     }
     NSString *path = [deviceUtilBundle pathForResource:@"DeviceList" ofType:@"plist"];
-    deviceList = [NSDictionary dictionaryWithContentsOfFile:path];
+    deviceList = [[NSDictionary dictionaryWithContentsOfFile:path] retain];
     NSAssert(deviceList != nil, @"DevicePlist not found in the bundle.");
   }
   return self;
